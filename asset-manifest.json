@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/cfhelper/static/css/main.1fdbe797.css",
-    "main.js": "/cfhelper/static/js/main.c976f130.js",
+    "main.js": "/cfhelper/static/js/main.c6ddd248.js",
     "static/media/c2logo.png": "/cfhelper/static/media/c2logo.f291bc5f1ecb789ffccc.png",
     "static/media/problem-solve.svg": "/cfhelper/static/media/problem-solve.e887feb264ab5f98b362d80c8bb7da93.svg",
     "static/media/compete-with-friends.svg": "/cfhelper/static/media/compete-with-friends.34902b33e4a70b93841cbbe3b175f9e7.svg",
@@ -18,10 +18,10 @@
     "static/media/verified-mail.svg": "/cfhelper/static/media/verified-mail.3ed95d03037a7d9a62638549326a3724.svg",
     "index.html": "/cfhelper/index.html",
     "main.1fdbe797.css.map": "/cfhelper/static/css/main.1fdbe797.css.map",
-    "main.c976f130.js.map": "/cfhelper/static/js/main.c976f130.js.map"
+    "main.c6ddd248.js.map": "/cfhelper/static/js/main.c6ddd248.js.map"
   },
   "entrypoints": [
     "static/css/main.1fdbe797.css",
-    "static/js/main.c976f130.js"
+    "static/js/main.c6ddd248.js"
   ]
 }
