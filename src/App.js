@@ -24,11 +24,12 @@ import ResetPassword from "./pages/auth/ResetPassword";
 import VerifyResetPasswordToken from "./pages/auth/VerifyResetPasswordToken";
 
 
+
 function App() {
   return (
     <>
       <SocketContext.Provider value={socket}>
-        <Router>
+        <Router basename="/cfhelper">
           <ScrollToTop>
             <div className="overflow-x-hidden h-full min-h-screen relative flex flex-col">
               <Navbar />
