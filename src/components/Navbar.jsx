@@ -39,12 +39,14 @@ export default function Navbar() {
   else if (location.pathname === "/create") selectedItemIndex = 2;
   else if (location.pathname === "/join") selectedItemIndex = 3;
   else if (location.pathname.includes("/live")) selectedItemIndex = 4;
+  else if (location.pathname.includes("/practice")) selectedItemIndex = 5;
+  else if (location.pathname.includes("/analyze")) selectedItemIndex = 6;
   else if (
     location.pathname === "/auth/login" ||
     location.pathname === "/auth/signup"
   )
-    selectedItemIndex = 5;
-  else selectedItemIndex = 6;
+    selectedItemIndex = 7;
+  else selectedItemIndex = 8;
 
   useEffect(() => {
     dispatch(changeIndex(selectedItemIndex));
@@ -198,15 +200,15 @@ export default function Navbar() {
                     <button
                       onClick={() => {
                         navigate("/auth/login");
-                        dispatch(changeIndex(5));
+                        dispatch(changeIndex(7));
                       }}
                       className={classNames(
-                        5 === selectedIndex
+                        7 === selectedIndex
                           ? "bg-gray-900 text-white"
                           : "text-gray-300 hover:bg-gray-700 hover:text-white",
                         "px-3 py-2 rounded-md text-sm font-medium"
                       )}
-                      aria-current={5 === selectedIndex ? "page" : undefined}
+                      aria-current={7 === selectedIndex ? "page" : undefined}
                     >
                       Log In
                     </button>

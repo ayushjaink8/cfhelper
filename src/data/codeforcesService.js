@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CF_API_URL } from "../config/constants";
+import { CF_API_URL, SERVER_URL } from "../config/constants";
 
 async function sleep(timeInMilliSeconds) {
   return new Promise((resolve) => setTimeout(resolve, timeInMilliSeconds));
@@ -123,7 +123,7 @@ const findWinnerForEachProblem = async (handles, problemNames) => {
 
 const getRatingChangeData = async (contestId) => {
   
-  const data = await axios.get("http://localhost:5000/api/analyze",{
+  const data = await axios.get(SERVER_URL + "api/analyze/getRatingChangeData",{
     params: { contestId: contestId }
   }).then((res) => res.data).catch(() => {
     return {

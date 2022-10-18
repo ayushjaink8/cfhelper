@@ -192,185 +192,187 @@ const LiveContest = ({ liveContestState, userState }) => {
   return fetchingProblems ? (
     <LoadingProblems />
   ) : liveContest ? (
-    <div className="h-full pt-10 w-full max-w-[1240px] p-4 md:p-12 lg:px-16">
-      {/* Leave Contest Modal */}
-      {isModalOpen && (
-        <Modal
-          title="Leave Contest"
-          message="Are you sure you want to leave the contest? This contest will not appear in the dashboard if you leave it in between."
-          confirmAction={leaveContestAction}
-        />
-      )}
-
-      {/* Timer and contest id */}
-      <div className="md:flex md:justify-between md:items-center w-full">
-        <Suspense fallback={<Spinner />}>
-          <Timer
-            duration={liveContest.duration}
-            isStarted={liveContest.isStarted}
-            countDownTimestampInMs={getRemainingTime()}
+    <div className="flex justify-center">
+      <div className="h-full pt-10 w-full max-w-[1240px] p-4 md:p-12 lg:px-16">
+        {/* Leave Contest Modal */}
+        {isModalOpen && (
+          <Modal
+            title="Leave Contest"
+            message="Are you sure you want to leave the contest? This contest will not appear in the dashboard if you leave it in between."
+            confirmAction={leaveContestAction}
           />
-        </Suspense>
-        <div className="bg-slate-100 rounded-xl shadow-lg p-4 my-4">
-          <div className="flex justify-between">
-            <h1 className="text-cyan-800 text-m font-mono">Contest ID</h1>
-            <div className="h-6 w-6 shadow-lg p-[2px] hover:scale-105 ease-in duration-75 cursor-pointer bg-gray-200 rounded-md border border-slate-800">
-              <CopyButton />
+        )}
+
+        {/* Timer and contest id */}
+        <div className="md:flex md:justify-between md:items-center w-full">
+          <Suspense fallback={<Spinner />}>
+            <Timer
+              duration={liveContest.duration}
+              isStarted={liveContest.isStarted}
+              countDownTimestampInMs={getRemainingTime()}
+            />
+          </Suspense>
+          <div className="bg-slate-100 rounded-xl shadow-lg p-4 my-4">
+            <div className="flex justify-between">
+              <h1 className="text-cyan-800 text-m font-mono">Contest ID</h1>
+              <div className="h-6 w-6 shadow-lg p-[2px] hover:scale-105 ease-in duration-75 cursor-pointer bg-gray-200 rounded-md border border-slate-800">
+                <CopyButton />
+              </div>
             </div>
+            <h3
+              id="livecontest-id"
+              className="text-gray-800 text-s tracking-wider mt-1"
+            >
+              {liveContest._id}
+            </h3>
           </div>
-          <h3
-            id="livecontest-id"
-            className="text-gray-800 text-s tracking-wider mt-1"
-          >
-            {liveContest._id}
-          </h3>
         </div>
-      </div>
 
-      <h3 className="my-8 text-gray-700 tracking-wide font-semibold text-lg text-center w-full">
-        After solving a problem, don't forget to press refresh button in the
-        ranklist.
-      </h3>
+        <h3 className="my-8 text-gray-700 tracking-wide font-semibold text-lg text-center w-full">
+          After solving a problem, don't forget to press refresh button in the
+          ranklist.
+        </h3>
 
-      {/* Problems table */}
-      <div className="grid grid-cols-7 my-8 gap-8">
-        {liveContest.isStarted ? (
-          <div className="col-span-7 md:col-span-4 shadow-md rounded-lg">
-            <div className="text-center p-4 w-full">
-              <h2 className="text-xl text-gray-800 font-semibold">Problems</h2>
+        {/* Problems table */}
+        <div className="grid grid-cols-7 my-8 gap-8">
+          {liveContest.isStarted ? (
+            <div className="col-span-7 md:col-span-4 shadow-md rounded-lg">
+              <div className="text-center p-4 w-full">
+                <h2 className="text-xl text-gray-800 font-semibold">Problems</h2>
+              </div>
+              <div className="bg-cyan-800 py-2 w-full grid grid-cols-4 gap-2">
+                <div className="text-center col-span-2 p-2">
+                  <h3 className=" text-white font-semibold">Problem Link</h3>
+                </div>
+                <div className="text-center col-span-1 p-2">
+                  <h3 className="text-white font-semibold">Rating</h3>
+                </div>
+                <div className="text-center text-whitecol-span-1 p-2">
+                  <h3 className="text-white font-semibold">Points</h3>
+                </div>
+              </div>
+              {liveContest.problems.map((problem, index) => (
+                <div
+                  key={index}
+                  className="bg-white-200 py-2 w-full grid grid-cols-4 gap-2"
+                >
+                  <div className="text-center col-span-2 p-2">
+                    <h3 className="text-cyan-800 font-bold tracking-wider underline">
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href={problem.problemLink}
+                      >
+                        {problem.name}
+                      </a>
+                    </h3>
+                  </div>
+                  <div className="text-center col-span-1 p-2">
+                    <h3 className="text-gray-800 font-semibold">
+                      {problem.rating}
+                    </h3>
+                  </div>
+                  <div className="text-center col-span-1 p-2">
+                    <h3 className="text-gray-800 font-semibold">
+                      {problem.points}
+                    </h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="col-span-7 md:col-span-4 shadow-md rounded-lg flex align-center justify-center">
+              <div className="p-4 flex align-center justify-center">
+                <h2 className="text-center text-2xl font-bold track-widest text-cyan-800">
+                  Problems will be displayed after the contest is started!
+                </h2>
+              </div>
+            </div>
+          )}
+
+          {/* Ranklist */}
+          <div className="col-span-7 md:col-span-3 shadow-md rounded-lg">
+            <div className="flex justify-center items-center p-4 w-full">
+              <div className="relative mr-2">
+                <h2 className="text-xl font-semibold mt-0 md-0">Ranklist</h2>
+              </div>
+              <div
+                className="relative ml-2 h-7 w-7 p-1 hover:scale-105 bg-gray-100 shadow-md rounded-2xl cursor-pointer"
+                onClick={updateRankList}
+              >
+                <RefreshIcon className="text-gray-600 hover:text-gray-900" />
+              </div>
             </div>
             <div className="bg-cyan-800 py-2 w-full grid grid-cols-4 gap-2">
+              <div className="text-center col-span-1 p-2">
+                <h3 className="text-white font-semibold">Rank</h3>
+              </div>
               <div className="text-center col-span-2 p-2">
-                <h3 className=" text-white font-semibold">Problem Link</h3>
+                <h3 className="text-white font-semibold">Contestant</h3>
               </div>
               <div className="text-center col-span-1 p-2">
-                <h3 className="text-white font-semibold">Rating</h3>
-              </div>
-              <div className="text-center text-whitecol-span-1 p-2">
                 <h3 className="text-white font-semibold">Points</h3>
               </div>
             </div>
-            {liveContest.problems.map((problem, index) => (
+
+            {liveContest.contestants.map((contestant, index) => (
               <div
                 key={index}
                 className="bg-white-200 py-2 w-full grid grid-cols-4 gap-2"
               >
+                <div className="text-center col-span-1 p-2">
+                  <h3 className="text-gray-800 font-semibold">
+                    {contestant.rank}
+                  </h3>
+                </div>
                 <div className="text-center col-span-2 p-2">
-                  <h3 className="text-cyan-800 font-bold tracking-wider underline">
-                    <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href={problem.problemLink}
-                    >
-                      {problem.name}
-                    </a>
+                  <h3 className="text-gray-800 font-semibold">
+                    {contestant.username}
                   </h3>
                 </div>
                 <div className="text-center col-span-1 p-2">
                   <h3 className="text-gray-800 font-semibold">
-                    {problem.rating}
-                  </h3>
-                </div>
-                <div className="text-center col-span-1 p-2">
-                  <h3 className="text-gray-800 font-semibold">
-                    {problem.points}
+                    {contestant.points}
                   </h3>
                 </div>
               </div>
             ))}
           </div>
-        ) : (
-          <div className="col-span-7 md:col-span-4 shadow-md rounded-lg flex align-center justify-center">
-            <div className="p-4 flex align-center justify-center">
-              <h2 className="text-center text-2xl font-bold track-widest text-cyan-800">
-                Problems will be displayed after the contest is started!
-              </h2>
-            </div>
-          </div>
-        )}
-
-        {/* Ranklist */}
-        <div className="col-span-7 md:col-span-3 shadow-md rounded-lg">
-          <div className="flex justify-center items-center p-4 w-full">
-            <div className="relative mr-2">
-              <h2 className="text-xl font-semibold mt-0 md-0">Ranklist</h2>
-            </div>
-            <div
-              className="relative ml-2 h-7 w-7 p-1 hover:scale-105 bg-gray-100 shadow-md rounded-2xl cursor-pointer"
-              onClick={updateRankList}
-            >
-              <RefreshIcon className="text-gray-600 hover:text-gray-900" />
-            </div>
-          </div>
-          <div className="bg-cyan-800 py-2 w-full grid grid-cols-4 gap-2">
-            <div className="text-center col-span-1 p-2">
-              <h3 className="text-white font-semibold">Rank</h3>
-            </div>
-            <div className="text-center col-span-2 p-2">
-              <h3 className="text-white font-semibold">Contestant</h3>
-            </div>
-            <div className="text-center col-span-1 p-2">
-              <h3 className="text-white font-semibold">Points</h3>
-            </div>
-          </div>
-
-          {liveContest.contestants.map((contestant, index) => (
-            <div
-              key={index}
-              className="bg-white-200 py-2 w-full grid grid-cols-4 gap-2"
-            >
-              <div className="text-center col-span-1 p-2">
-                <h3 className="text-gray-800 font-semibold">
-                  {contestant.rank}
-                </h3>
-              </div>
-              <div className="text-center col-span-2 p-2">
-                <h3 className="text-gray-800 font-semibold">
-                  {contestant.username}
-                </h3>
-              </div>
-              <div className="text-center col-span-1 p-2">
-                <h3 className="text-gray-800 font-semibold">
-                  {contestant.points}
-                </h3>
-              </div>
-            </div>
-          ))}
         </div>
-      </div>
 
-      {/* Show start button etc */}
-      <div className="w-full gap-8 flex items-center justify-center md:gap-12">
-        <button
-          onClick={handleStartContest}
-          disabled={liveContest.isStarted || user._id !== liveContest.admin}
-          className={
-            liveContest.isStarted
-              ? "hidden"
-              : user._id === liveContest.admin
-              ? `inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 ${
-                  !loadingContestFinished ? "cursor-not-allowed" : ""
-                }`
-              : "hidden"
-          }
-        >
-          Start Contest
-        </button>
+        {/* Show start button etc */}
+        <div className="w-full gap-8 flex items-center justify-center md:gap-12">
+          <button
+            onClick={handleStartContest}
+            disabled={liveContest.isStarted || user._id !== liveContest.admin}
+            className={
+              liveContest.isStarted
+                ? "hidden"
+                : user._id === liveContest.admin
+                ? `inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 ${
+                    !loadingContestFinished ? "cursor-not-allowed" : ""
+                  }`
+                : "hidden"
+            }
+          >
+            Start Contest
+          </button>
 
-        <button
-          onClick={handleLeaveContest}
-          className={`inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" ${
-            !loadingContestFinished ? "cursor-not-allowed" : ""
-          }`}
-        >
-          Leave Contest
-        </button>
+          <button
+            onClick={handleLeaveContest}
+            className={`inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" ${
+              !loadingContestFinished ? "cursor-not-allowed" : ""
+            }`}
+          >
+            Leave Contest
+          </button>
+        </div>
+        {liveContest.isStarted ? (
+          <div className="w-full my-8 md:my-12"></div>
+        ) : (
+          <div></div>
+        )}
       </div>
-      {liveContest.isStarted ? (
-        <div className="w-full my-8 md:my-12"></div>
-      ) : (
-        <div></div>
-      )}
     </div>
   ) : (
     <NoContestFound />

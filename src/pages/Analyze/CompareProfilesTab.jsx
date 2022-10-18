@@ -44,8 +44,12 @@ const CompareProfilesTab = () => {
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <div className="container-fluid">
 
+              <div className="m-2 text-center text-xl font-medium">
+                Feature Coming Soon!
+              </div>
 
-            <div className="mb-3 row text-center justify-content-center">
+
+            {/* <div className="mb-3 row text-center justify-content-center">
               <div className="col-auto">
                 <input
                   type="text"
@@ -71,7 +75,7 @@ const CompareProfilesTab = () => {
                   <i className="bi bi-people"></i> Compare
                 </button>
               </div>
-            </div>
+            </div> */}
 
 
 

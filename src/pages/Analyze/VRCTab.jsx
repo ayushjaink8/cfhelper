@@ -51,7 +51,7 @@ const VRCTab = () => {
                   placeholder="Enter Contest ID"
                   className="form-control"
                   id="inputContestID"
-                  value={contest}
+                  // value={contest}
                   onChange={(e) => {
                     e.preventDefault();
                     setContest(e.target.value)}

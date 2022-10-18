@@ -25,7 +25,7 @@ const RatingChangeTable = ({ tableData }) => {
     }
 
   }
-
+  
   return (
     <>
 
@@ -36,10 +36,10 @@ const RatingChangeTable = ({ tableData }) => {
               type="text"
               placeholder="Search Handle"
               id="searchHandle"
-              value={searchHandle}
+              // value={searchHandle}
               onChange={(e) => {
-                e.preventDefault();
-                setSearchHandle(e.target.value)
+                // e.preventDefault();
+                setSearchHandle(e.target.value);
               }}
               onKeyDown={(e) => {
                 if (e.key === "Enter") filterTable();

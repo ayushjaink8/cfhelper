@@ -10,7 +10,7 @@ const MAX_PROBLEM_POINTS = 100;
 const MAX_PLAYERS = 6;
 const MAX_PROBLEM_RATING = 3500;
 const MIN_PROBLEM_RATING = 800;
-const SERVER_URL =
+const SERVER_URL = 
   process.env.REACT_APP_ENV === "production"
     ? process.env.REACT_APP_SERVER_URL
     : "http://localhost:5000/";
