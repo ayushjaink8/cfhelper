@@ -5,10 +5,10 @@ import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import "./index.css";
 
-import ReactDOM from "react-dom";
+var ReactDOMClient = require('react-dom/client');
 
 // @ts-ignore
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOMClient.createRoot(document.getElementById("root"));
 
 root.render(
   // <React.StrictMode>

@@ -12,7 +12,7 @@ export class TabNav extends Component {
 
                                 return (
                                     <button key={i} className="rounded-md hover:bg-gray-200 font-medium pr-5 pl-5">
-                                        <a key={ tab } className={"nav-link " + active} onClick={ () => {this.props.setSelected(tab); return false;}} href="#">
+                                        <a key={ tab } className={"nav-link " + active} onClick={ () => {this.props.setSelected(tab); return false;}}>
                                             { tab }
                                         </a>
                                     </button>
