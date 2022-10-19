@@ -1,7 +1,7 @@
 {
-  "name": "frontend",
+  "name": "cfhelper",
   "homepage": "https://ayushjaink8.github.io/cfhelper",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.6.4",
