@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, HashRouter } from "react-router-dom";
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
 import Home from "./pages/Home";
@@ -29,7 +29,8 @@ function App() {
   return (
     <>
       <SocketContext.Provider value={socket}>
-        <Router basename="/cfhelper">
+      <HashRouter>
+        {/* <Router basename="/cfhelper"> */}
           <ScrollToTop>
             <div className="overflow-x-hidden h-full min-h-screen relative flex flex-col">
               <Navbar />
@@ -61,7 +62,8 @@ function App() {
               <Footer />
             </div>
           </ScrollToTop>
-        </Router>
+        {/* </Router> */}
+        </HashRouter>
       </SocketContext.Provider>
       <ToastContainer
         pauseOnFocusLoss={false}
