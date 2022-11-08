@@ -143,7 +143,7 @@ export default function Signup() {
                   minLength={2}
                   autoComplete="name"
                   value={formData.name}
-                  placeholder="Abhay Garg"
+                  placeholder="Ayush Jain"
                   onChange={onChange}
                   className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
                 />
@@ -163,7 +163,7 @@ export default function Signup() {
                   required
                   autoComplete="username"
                   value={formData.username}
-                  placeholder="prayutsu"
+                  placeholder="ayushjaink8"
                   onChange={onChange}
                   className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
                 />

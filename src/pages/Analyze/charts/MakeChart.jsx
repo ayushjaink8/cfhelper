@@ -92,20 +92,20 @@ const MakeChart = ({ userData, tableData }) => {
 
               <div className="grid grid-cols-12 text-gray-700 text-base mb-4">
                 <div className="col-span-6 overflow-x-auto relative shadow-md sm:rounded-lg">
-                  <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                  <table className="w-full text-sm text-left text-gray-500">
                     <tbody>
-                      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"> {" "} Tried {" "} </th>
+                      <tr className="bg-white border-b hover:bg-gray-50">
+                        <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"> {" "} Tried {" "} </th>
                         <td className="py-4 px-6"> {tableData.tried} </td>
                       </tr>
-                      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">{" "}Solved{" "}</th>
+                      <tr className="bg-white border-b hover:bg-gray-50">
+                        <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">{" "}Solved{" "}</th>
                         <td className="py-4 px-6"> {tableData.solved} </td>
                       </tr>
-                      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <tr className="bg-white border-b hover:bg-gray-50">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                          className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
                         >
                           {" "}Average attempts{" "}
                         </th>
@@ -113,10 +113,10 @@ const MakeChart = ({ userData, tableData }) => {
                           {" "}{(userData.totalSub / tableData.solved).toFixed(2)}{" "}
                         </td>
                       </tr>
-                      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <tr className="bg-white border-b hover:bg-gray-50">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                          className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
                         >
                           {" "}Max attempts{" "}
                         </th>
@@ -124,18 +124,18 @@ const MakeChart = ({ userData, tableData }) => {
                           {" "}{tableData.maxAttempt}{" "}{getLink(tableData.maxAttemptProblem)}{" "}
                         </td>
                       </tr>
-                      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                      <tr className="bg-white border-b hover:bg-gray-50">
+                        <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
                           {" "}Solved with one submission{" "}
                         </th>
                         <td className="py-4 px-6">
                           {" "}{tableData.solvedWithOneSub}{" "}
                         </td>
                       </tr>
-                      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <tr className="bg-white border-b hover:bg-gray-50">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                          className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
                         >
                           {" "}Max attempts{" "}
                         </th>
@@ -148,21 +148,21 @@ const MakeChart = ({ userData, tableData }) => {
                 </div>
 
                 <div className="col-span-6 overflow-x-auto relative shadow-md sm:rounded-lg">
-                  <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                  <table className="w-full text-sm text-left text-gray-500">
                     <tbody>
-                      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <tr className="bg-white border-b hover:bg-gray-50">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                          className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
                         >
                           {" "}Contests Given{" "}
                         </th>
                         <td className="py-4 px-6"> {tableData.tot} </td>
                       </tr>
-                      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <tr className="bg-white border-b hover:bg-gray-50">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                          className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
                         >
                           {" "}Best rank{" "}
                         </th>
@@ -170,10 +170,10 @@ const MakeChart = ({ userData, tableData }) => {
                           {" "}{tableData.best} {getLink(tableData.bestCon)}{" "}
                         </td>
                       </tr>
-                      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <tr className="bg-white border-b hover:bg-gray-50">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                          className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
                         >
                           {" "}Worst rank{" "}
                         </th>
@@ -182,10 +182,10 @@ const MakeChart = ({ userData, tableData }) => {
                           {tableData.worst} {getLink(tableData.worstCon)}{" "}
                         </td>
                       </tr>
-                      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <tr className="bg-white border-b hover:bg-gray-50">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                          className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
                         >
                           {" "}Max rating up{" "}
                         </th>
@@ -193,10 +193,10 @@ const MakeChart = ({ userData, tableData }) => {
                           {" "}{tableData.maxUp} {getLink(tableData.maxUpCon)}{" "}
                         </td>
                       </tr>
-                      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <tr className="bg-white border-b hover:bg-gray-50">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                          className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
                         >
                           {" "}Max rating down{" "}
                         </th>
