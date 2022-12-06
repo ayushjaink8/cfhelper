@@ -131,7 +131,7 @@ export default function Navbar() {
                   <a
                     target="_blank"
                     rel="noreferrer"
-                    href="https://www.github.com/ayushjaink8"
+                    href="https://www.buymeacoffee.com/ayushjaink8"
                   >
                     <SiBuymeacoffee className="h-6 w-6" />
                   </a>
